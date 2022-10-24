@@ -41,7 +41,7 @@
   color: var(--white);
 }
 
-html {
+body {
   font-family: Poppins, sans-serif;
   margin: var(--spacing-sm);
   padding: var(--spacing-md);
@@ -88,6 +88,10 @@ h1 {
   margin-block-end: var(--spacing-sm);
 }
 
+h1 span {
+  text-decoration: underline 2px var(--primary);
+}
+
 h2 {
   font-size: var(--heading-md);
 }
@@ -116,14 +120,13 @@ li,
 
 /* Links */
 
-a:not(.btn) {
-  color: var(--primary);
-  text-decoration-color: transparent;
-  transition: var(--transition-duration);
+a {
+  text-decoration: 1px underline transparent;
 }
 
-a:not(.btn):hover {
-  text-decoration-color: var(--primary);
+a:not(.btn) {
+  color: var(--primary);
+  transition: var(--transition-duration);
 }
 
 .btn {
@@ -139,7 +142,6 @@ a:not(.btn):hover {
   color: var(--white);
   padding: var(--spacing-sm) var(--spacing-md);
   text-transform: uppercase;
-  text-decoration: none;
   font-weight: 500;
   letter-spacing: 2px;
   transition: calc(var(--transition-duration) * 2);
@@ -202,7 +204,6 @@ img[alt="Link to Microbe Research video"] {
 
 #hero > * {
   --delay: 0;
-  translate: 0 -100px; /* Animation starting point */
   opacity: 0; /* Animation starting point */
   animation: fade-in calc(var(--transition-duration) * 3)
     calc(var(--delay) * 0.1s) forwards;
@@ -217,10 +218,18 @@ img[alt="Link to Microbe Research video"] {
   --delay: 2;
 }
 
+#hero header {
+  margin-block-end: var(--spacing-lg);
+}
+
 #hero,
 #recap,
 #footer {
   --gap: var(--spacing-lg);
+}
+
+#recap div {
+  margin-block-end: var(--spacing-md);
 }
 
 #recap h3 {
@@ -254,6 +263,10 @@ footer {
   gap: calc(var(--spacing-sm) / 2);
 }
 
+#links a:hover {
+  text-decoration-color: var(--primary);
+}
+
 #links span:not(:last-child)::after {
   content: "|";
   color: var(--gray);
@@ -264,7 +277,6 @@ footer {
 
 @keyframes fade-in {
   to {
-    translate: 0;
     opacity: 1;
   }
 }
@@ -273,7 +285,7 @@ footer {
 
 /* Tablet */
 @media (min-width: 768px) {
-  html {
+  body {
     margin: var(--spacing-md);
     padding: var(--spacing-lg);
   }
@@ -284,7 +296,7 @@ footer {
 
 /* Desktop */
 @media (min-width: 1024px) {
-  html {
+  body {
     margin-inline: auto;
   }
   footer #img-text {
@@ -293,5 +305,9 @@ footer {
 
   footer #img-text > * {
     flex-basis: 45%;
+  }
+
+  #links {
+    justify-content: flex-start;
   }
 }
